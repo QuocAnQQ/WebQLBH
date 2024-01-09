@@ -1,0 +1,74 @@
+
+<h2 >Add new order</h2>
+
+<form [formGroup]="orderForm">
+    <div class="mb-3" style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+          <label for="productCategory" class="form-label">Product Category</label>
+          <select class="form-control" id="productCategoryName" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedProductCategoryId" (ngModelChange)="onProductCategoryChange()" name="productCategoryName">
+            <option *ngFor="let category of productCategories" [value]="category.id">{{ category.productCategoryName }}</option>
+          </select>
+          
+        </div>
+        <div style="flex: 1; margin-right: 10px;">
+            <label for="ProductName" class="form-label">Product Name</label>
+            <select class="form-control" id="productName"  [(ngModel)]="selectedProductId" formControlName="productName" (ngModelChange)="onProductNameChange()">
+              <option *ngFor="let product of products" [value]="product.id">{{ product.productName }}</option>
+            </select>
+          </div>
+      </div>
+      
+      <!-- <div class="mb-3" style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+          <label for="ProductName" class="form-label">Product Name</label>
+          <select class="form-control" id="productName" formControlName="productName">
+            <option *ngFor="let product of products" [value]="product.id">{{ product.productName }}</option>
+          </select>
+        </div>
+        <div style="flex: 1;">
+           Optional: Add another input for additional information here -->
+        <!-- </div> -->
+      <!-- </div> --> 
+      
+      <div class="mb-3" style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="quantity" formControlName="quantity">
+        </div>
+        <div style="flex: 1;">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price">
+        </div>
+      </div>
+      
+      <div class="mb-3" style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+          <label for="totalPrice" class="form-label">Total Price</label>
+          <input type="number" class="form-control" id="totalPrice" formControlName="totalPrice">
+        </div>
+        <div style="flex: 1; margin-right: 10px;">
+            <label for="customerPhone" class="form-label">Customer Phone</label>
+            <input type="tel" class="form-control" id="customerPhone" formControlName="customerPhone">
+          </div>
+      </div>
+      
+      <div class="mb-3 w-100" style="display: flex; justify-content: space-between;">
+      
+        <div style="flex: 1;">
+          <label for="customerName" class="form-label">Customer Name</label>
+          <input type="text" class="form-control" id="customerName" formControlName="customerName">
+        </div>
+       
+      </div>
+      
+
+
+ 
+  <div class="button">
+<button class="btn btn-primary" type="submit" (click)="addNewOrder()"  cdkFocusInitial> Add</button>
+    <button class="btn btn-danger" type="submit" style="margin-left: 10px"  (click)="closeDialog()">Cancel</button>
+    <!-- [mat-dialog-close]="categoryInfo" -->
+
+  </div>
+  <!-- Other form fields go here -->
+</form>

@@ -1,0 +1,51 @@
+
+<h2 >Add new return order</h2>
+
+<form [formGroup]="returnOrderForm">
+    <div class="mb-3 w-100">
+      
+            <label for="ProductName" class="form-label">Product Name</label>
+            <select class="form-control" id="productName"  [(ngModel)]="selectedProductId" formControlName="productName" (ngModelChange)="onProductNameChange()">
+              <option *ngFor="let product of productDetails" [value]="product.id">{{ product.productName }}</option>
+            </select>
+    </div>
+      
+    
+      
+      <div class="mb-3 w-100" >
+    
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="quantity" formControlName="quantity">
+      </div>
+
+      
+      <div class="mb-3 w-100" >
+ 
+          <label for="reason" class="form-label">Return Reason</label>
+          <input type="text" class="form-control" id="reason" formControlName="reason">
+        </div>
+
+   
+      
+      <div class="mb-3 w-100" >
+      
+        <label for="customerName" class="form-label">customerName</label>
+        <select class="form-control" id="customerName"  [(ngModel)]="selectedCustomerId" formControlName="customerName" (ngModelChange)="onCustomerChange()">
+          <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fullName }}</option>
+        </select>
+     
+       
+      </div>
+      
+
+
+ 
+  <div class="button">
+<button class="btn btn-primary" type="submit" (click)="addNewOrder()"  cdkFocusInitial> Add</button>
+    <button class="btn btn-danger" type="submit" style="margin-left: 10px"  (click)="closeDialog()">Cancel</button>
+    <!-- [mat-dialog-close]="categoryInfo" -->
+
+  </div>
+  <!-- Other form fields go here -->
+</form>
+

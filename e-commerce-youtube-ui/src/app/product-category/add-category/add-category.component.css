@@ -1,0 +1,10 @@
+.button{
+    float:right;
+  }
+  .input.ng-touched.ng-invalid{
+    border: 1px, solid,red;
+  }
+  .error{
+    font-size: 12px;
+    color: red;
+  }

@@ -1,0 +1,58 @@
+<h2 class="">Order management</h2>
+<div class="form-row"style="width: 100%; margin-bottom: 10px">
+    <div class="form-group">
+      <label for="selectedMonth">Select Month</label>
+      <select id="selectedMonth" style="height: 30px;" [(ngModel)]="selectMonth" (change)="updateFilterDTO()">
+        <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <select id="productName"style="height: 30px;" [(ngModel)]="selectedProductId" (change)="updateFilterDTO()">
+        <option *ngFor="let product of productDetails" [value]="product.id">{{ product.productName }}</option>
+      </select>
+    </div>
+  </div>
+  
+
+<table mat-table [dataSource]="staticDetails" class="mat-elevation-z8" style="width: 100%;">
+  
+  
+   <ng-container matColumnDef="Index" style="width: 25px !important;">
+     <th mat-header-cell *matHeaderCellDef> Index </th>
+     <td mat-cell *matCellDef="let element; let i = index" > {{ i + index }} </td>
+   </ng-container>
+ 
+
+ <ng-container matColumnDef="productName">
+     <th mat-header-cell *matHeaderCellDef> Product Name </th>
+     <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+   </ng-container>
+ 
+
+   <ng-container matColumnDef="productPriceInput">
+    <th mat-header-cell *matHeaderCellDef> productPriceInput</th>
+    <td mat-cell *matCellDef="let element"> {{element.productPriceInput}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="productActualPrice">
+     <th mat-header-cell *matHeaderCellDef> productActualPrice</th>
+     <td mat-cell *matCellDef="let element"> {{element.productActualPrice}} </td>
+   </ng-container>
+   <ng-container matColumnDef="soldQuantity">
+    <th mat-header-cell *matHeaderCellDef>soldQuantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.soldQuantity}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="profit">
+       <th mat-header-cell *matHeaderCellDef>profit</th>
+       <td mat-cell *matCellDef="let element"> {{element.profit}} </td>
+   </ng-container>
+
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ </table>
+
+

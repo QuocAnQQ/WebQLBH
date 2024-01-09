@@ -1,0 +1,63 @@
+mat-grid-tile {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.image-container {
+    position: relative;
+    height: 300px;
+}
+/* Add this CSS to your component's stylesheet or your global styles.css */
+
+.mat-elevation-z8 {
+    width: 100%; /* Set the width to 100% */
+    overflow-x: auto; 
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+  
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: left; /* Adjust the text alignment as needed */
+  }
+  
+  /* Adjust the width of specific columns if necessary */
+  th.mat-header-cell:nth-child(1),
+  td.mat-cell:nth-child(1) {
+    padding-left: 30px;
+    width: 30px; /* Adjust the width for the Index column */
+    
+  }
+  
+  th.mat-header-cell:nth-child(2),
+  td.mat-cell:nth-child(2) {
+    padding-left: 30px;
+    width: 30%;
+    /* Adjust the width for the Quantity column */
+  }
+  
+  th.mat-header-cell:nth-child(3),
+  td.mat-cell:nth-child(3) {
+    width: 10%;
+    /* Adjust the width for the Product Name column */
+  }
+  
+  th.mat-header-cell:nth-child(4),
+  td.mat-cell:nth-child(4) {
+    width: 10%;
+    /* Adjust the width for the Total Price column */
+  }
+  
+  th.mat-header-cell:nth-child(5),
+  td.mat-cell:nth-child(5) {
+    width: 10%;
+    /* Adjust the width for the Customer Name column */
+  }
+  
+  th.mat-header-cell:nth-child(6),
+  td.mat-cell:nth-child(6) {
+  
+    width: 20%; /* Adjust the width for the Actions column */
+  }
+  

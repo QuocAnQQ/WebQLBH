@@ -1,0 +1,30 @@
+<h2 >Edit product </h2>
+<form [formGroup]="ProductForm">
+  <div class="mb-3">
+    <label for="productName" class="form-label">Product Name </label>
+    <input type="text" class="form-control" id="productName" formControlName="productName">
+    </div>
+
+  <div class="mb-3">
+    <label for="productDescription" class="form-label">productDescription</label>
+    <input type="productDescription" class="form-control" id="productDescription"  formControlName="productDescription">
+</div>
+<div class="mb-3">
+    <label for="productQuantity" class="form-label">productQuantity</label>
+    <input type="productQuantity" class="form-control" id="productQuantity"  formControlName="productQuantity">
+</div>
+<div class="mb-3">
+    <label for="productActualPrice" class="form-label">productActualPrice</label>
+    <input type="productActualPrice" class="form-control" id="productActualPrice"  formControlName="productActualPrice">
+</div>
+ 
+  <div class="button">
+
+    <button class="btn btn-primary" type="submit"  (click)="editProduct()" > Sửa </button>
+    <button class="btn btn-danger" type="submit" style="margin-left: 10px"  (click)="closeDialog()">Huỷ</button>
+
+  </div>
+  
+</form>
+
+

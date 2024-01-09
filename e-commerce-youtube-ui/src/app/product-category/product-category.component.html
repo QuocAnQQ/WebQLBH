@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="header"> Product Category List</h2>
+    <button type="button" class="btn btn-primary btn-sm" (click)="openAddForm()" style="margin-right: auto;"> <span>&#43;</span>
+     Thêm mới
+    </button>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Product Category Code</th>
+                <th>Product Category Name</th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let category of categories" >
+                <td> {{ category?.id }} </td>
+                <td> {{ category?.productCategoryCode }} </td>
+                <td> {{ category?.productCategoryName }} </td>
+                <td>
+    
+                    <button  class = "btn btn-info btn-sm"  (click)="openEditForm(category)"> Update</button>
+                    <button  class = "btn btn-danger btn-sm" (click)="openDeleteCategory(category.id)" style="margin-left: 10px"> Delete</button>
+    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

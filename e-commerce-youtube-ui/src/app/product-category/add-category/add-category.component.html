@@ -1,0 +1,29 @@
+<h2 *ngIf="isEditMode">Edit product category</h2>
+<h2 *ngIf="!isEditMode">Add new product category</h2>
+<!-- <h2>{{ isEditMode ? 'Sửa thông tin nhân viên' : 'Thêm mới nhân viên' }}</h2> -->
+<form [formGroup]="categoryForm">
+  <div class="mb-3">
+    <label for="productCategoryCode" class="form-label">Code Category </label>
+    <input type="text" class="form-control" id="productCategoryCode" formControlName="productCategoryCode">
+    <span class="error" *ngIf="categoryForm.get('productCategoryCode').touched && categoryForm.get('productCategoryCode').hasError('required')"> *This field is required</span>
+  
+    <!-- <input type="text" class="form-control" id="codeCategory" [(ngModel)]="categoryData.codeCategory" formControlName="codeCategory"> -->
+  </div>
+
+  <div class="mb-3">
+    <label for="productCategoryName" class="form-label">Name Category</label>
+    <input type="productCategoryName" class="form-control" id="productCategoryName"  formControlName="productCategoryName">
+    <span class="error" *ngIf="categoryForm.get('productCategoryName').touched && categoryForm.get('productCategoryName').hasError('required')"> *This field is required</span>
+</div>
+ 
+  <div class="button">
+
+    <button class="btn btn-primary" type="submit" *ngIf="isEditMode" (click)="editCategory()" [disabled]="!categoryForm.valid"> Sửa </button>
+    <button class="btn btn-primary" type="submit" *ngIf="!isEditMode" (click)="addNewCategory()"  cdkFocusInitial [disabled]="!categoryForm.valid" > Thêm mới </button>
+    <button class="btn btn-danger" type="submit" style="margin-left: 10px"  (click)="closeDialog()">Huỷ</button>
+    <!-- [mat-dialog-close]="categoryInfo" -->
+
+  </div>
+  <!-- Other form fields go here -->
+</form>
+
